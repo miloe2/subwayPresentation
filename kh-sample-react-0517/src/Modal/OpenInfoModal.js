@@ -199,8 +199,8 @@ const OpenInfoModal = ({ handleModalClose, stationInfo, isClosing, hoverClick })
                             </StationBoard>
                             
                             <div className="nextStation">
-                                <p>{index}</p> {/* 이전역 */}
-                                <p>{index}</p> {/* 다음역 */}
+                                <p>{}</p> {/* 이전역 */}
+                                <p>{}</p> {/* 다음역 */}
                             </div>
                        
                         </div>
