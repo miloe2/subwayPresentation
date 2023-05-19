@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import styled, { withTheme } from "styled-components";
+import styled from "styled-components";
 import MainVideo from "./MainVideo";
 
 const Container =styled.div`
@@ -71,11 +71,7 @@ const TextBox = styled.div`
 
 
 function VideoWallpaper() {
-  const [modal, setModal] = useState(false);
-  
-  const isClicked = () => {
-    setModal(!modal);
-  }
+
   const navigate = useNavigate();
 
   return (

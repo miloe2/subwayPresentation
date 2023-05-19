@@ -4,13 +4,10 @@ import SubwayMap from './SubwayMap';
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Chat from "./pages/Chat"
-import Nav2 from "./components/Nav2";
-import Nav from './components/Nav';
 
 import KakaoMap from "./pages/Kakao";
-import MainVideo from "./components/MainVideo";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Logo from './components/logo';
+
 
 const App = () => {
   return (

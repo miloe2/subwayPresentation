@@ -160,7 +160,7 @@ const ScheduleList = ({ ID }) => {
                         return UpTrain;
                       })
                       .map((schedule) => {
-                        const { dptTm, tmnStinCd, stinCd } = schedule;
+                        const { dptTm, tmnStinCd } = schedule;
                         const [hours, minutes] = [
                           dptTm.substring(0, 2),
                           dptTm.substring(2, 4),
@@ -183,7 +183,7 @@ const ScheduleList = ({ ID }) => {
                         return !UpTrain;
                       })
                       .map((schedule) => {
-                        const { dptTm, tmnStinCd, stinCd } = schedule;
+                        const { dptTm, tmnStinCd } = schedule;
                         const [hours, minutes] = [
                           dptTm.substring(0, 2),
                           dptTm.substring(2, 4),

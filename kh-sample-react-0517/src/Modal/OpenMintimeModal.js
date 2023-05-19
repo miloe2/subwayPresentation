@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import lineColors from '../lineColor';
-import { useState } from 'react';
 
 const Container = styled.div`
 width: 500px;

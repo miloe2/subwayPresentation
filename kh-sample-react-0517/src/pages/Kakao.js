@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Nav from "../components/Nav";
-import styled from "styled-components";
 
 const { kakao } = window;
 const mapStyle = {

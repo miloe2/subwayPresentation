@@ -1,8 +1,5 @@
-import React, { useState } from "react";
-import About from "../pages/About";
-import Nav from "./Nav";
-import { useNavigate } from "react-router-dom";
-import styled, { withTheme } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import videoBG from "../img/main.mp4";
 
 const Container =styled.div`
@@ -20,14 +17,7 @@ const Video = styled.video`
   /* z-index: 1; */
 `;
 
-const BlackBg = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-  opacity: 0.2;
-  position: absolute;
-  top: 0;
-`;
+
 
 function MainVideo() {
   // const [modal, setModal] = useState(false);

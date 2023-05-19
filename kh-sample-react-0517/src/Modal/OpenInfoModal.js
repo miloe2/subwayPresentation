@@ -146,10 +146,10 @@ const OpenInfoModal = ({ handleModalClose, stationInfo, isClosing, hoverClick })
 
     const stationId = stationIds.find(e=>e === getId[0]);
 
-    const index = stations
-    .filter(s => s.line === line)
-    .flatMap(line => line.stations)
-    .find(s => s.name === name);
+    // const index = stations
+    // .filter(s => s.line === line)
+    // .flatMap(line => line.stations)
+    // .find(s => s.name === name);
 
 //     console.log(stationId);
 
