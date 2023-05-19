@@ -36,7 +36,7 @@ const useStates = () => {
         endMarker, setEndMarker,
         blur, setBlur,
         // 
-        buttonText, setButtonText
+        buttonText, setButtonText,
     };
 }
 

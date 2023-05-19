@@ -89,7 +89,8 @@ const SearchBar = ({ startStation, setStartStation, setStartMarker, endStation,s
   const [filteredStations, setFilteredStations] = useState([]);
   const [startStationInput, setStartStationInput] = useState(false);
   const [endStationInput, setEndStationInput] = useState(false);
-  
+  const [isBlur, setisBlur] = useState(false);
+  let inputBlurTimeout;
 
   useEffect(() => {
     // startStation 값이 변경될 때마다 startMarker를 업데이트
@@ -156,23 +157,38 @@ const SearchBar = ({ startStation, setStartStation, setStartMarker, endStation,s
   
 
 
-  function handleMenuClick(stationName,inputText) {
-    if (inputText===inputTextS) {
-      setStartStation(stationName);
+  function handleMenuClick(stationName, inputText) {
+
+    clearTimeout(inputBlurTimeout); // 이전에 예약된 handleInputBlur 함수 실행 취소
+
+    setisBlur(true);
+    
+    if (inputText === inputTextS) {
       setInputTextS(stationName);
-    } else if(inputText===inputTextE){
+      setStartStation(stationName);
+    } else if (inputText === inputTextE) {
       setInputTextE(stationName);
       setEndStation(stationName);
     }
     setFilteredStations([]);
+    setisBlur(false);
   }
   
-
   
-  function handleInputBlur() {
-    setTimeout(() => {
-      setFilteredStations([]);
-    }, 500);
+
+  function handleInputBlur(event) {
+    const { name } = event.target;
+  
+    inputBlurTimeout = setTimeout(() => {
+      if (!isBlur) {
+        if (name === "startStation") {
+          setInputTextS(startStation);
+        } else if (name === "endStation") {
+          setInputTextE(endStation);
+        }
+      }
+      // setFilteredStations([]);
+    }, 100);
   }
 
     const search = (text, query) => {
@@ -207,7 +223,7 @@ const SearchBar = ({ startStation, setStartStation, setStartMarker, endStation,s
             value={inputTextS}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
-            placeholder='도착역을 입력해주세요'
+            placeholder='출발역을 입력해주세요'
           />
             {inputTextS && startStationInput&&
               filteredStations
@@ -242,7 +258,6 @@ const SearchBar = ({ startStation, setStartStation, setStartMarker, endStation,s
           onChange={handleInputChange}
           onBlur={handleInputBlur}
           placeholder='도착역을 입력해주세요'
-
       />
 
       {inputTextE && endStationInput&&
@@ -272,6 +287,7 @@ const SearchBar = ({ startStation, setStartStation, setStartMarker, endStation,s
           </div>
         ))}
         </div>
+
         <div className='btnBlock'>
           <button className = "change"
           onClick={ChangeStartEnd}> &#8645; </button>

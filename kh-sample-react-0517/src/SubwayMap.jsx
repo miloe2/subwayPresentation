@@ -50,8 +50,6 @@ function SubwayMap() {
   const [selectedStations, setSelectedStations] = useState([]); //최소환승
   const [selectedStations2, setSelectedStations2] = useState([]); //최소시간
   
- 
-
   
   useEffect(() => {
     if (startStation && endStation) {
