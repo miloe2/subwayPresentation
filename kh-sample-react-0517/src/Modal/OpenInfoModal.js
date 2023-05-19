@@ -141,22 +141,27 @@ const OpenInfoModal = ({ handleModalClose, stationInfo, isClosing, hoverClick })
   .filter((line) => line.stations.some((s) => s.name === name))
   .map((line) => line.stations.find((s) => s.name === name)?.ID);
 
+  //아아디 값만 가져오기
   const getId = stations.filter((e) => e.line === line)
   .map(line => line.stations.find(s => s.name === name)?.ID);
 
     const stationId = stationIds.find(e=>e === getId[0]);
 
-    // const index = stations
-    // .filter(s => s.line === line)
-    // .flatMap(line => line.stations)
-    // .find(s => s.name === name);
 
-//     console.log(stationId);
+    //해당역의 전역과 다음역 가져오기
+    const filteredStations = stations
+    .filter((s) => s.line === line);
 
-
-//   console.log(stationIds);
-
-
+    const names = filteredStations
+    .flatMap((line) => line.stations)
+    .map((s) => s.name);
+    
+    const index = filteredStations
+    .flatMap((line) => line.stations)
+    .findIndex((s) => s.name === name);
+    
+      const prevName = names[index - 1];
+      const nextName = names[index + 1];
 
   return (
 
@@ -199,8 +204,8 @@ const OpenInfoModal = ({ handleModalClose, stationInfo, isClosing, hoverClick })
                             </StationBoard>
                             
                             <div className="nextStation">
-                                <p>{}</p> {/* 이전역 */}
-                                <p>{}</p> {/* 다음역 */}
+                                <p>{prevName}</p> {/* 이전역 */}
+                                <p>{nextName}</p> {/* 다음역 */}
                             </div>
                        
                         </div>
